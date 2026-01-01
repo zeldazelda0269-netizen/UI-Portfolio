@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naqeeb ur Rehman - UI/UX Designer Portfolio</title>
+    <meta name="description" content="Naqeeb ur Rehman — UI/UX designer and front-end developer. I design intuitive interfaces and build responsive websites that delight users.">
+    <meta property="og:title" content="Naqeeb ur Rehman - UI/UX Designer Portfolio" />
+    <meta property="og:description" content="Professional portfolio showcasing UI/UX case studies, projects, and design work." />
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Naqeeb+ur+Rehman+Portfolio" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Naqeeb ur Rehman - UI/UX Designer Portfolio">
+    <meta name="twitter:description" content="UI/UX designer and front-end developer. Case studies, projects and contact information.">
+    <link rel="canonical" href="https://yourdomain.com/">
+    <meta name="theme-color" content="#1f3a93">
+    <!-- Inline SVG favicon (replace with real favicon.ico) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231f3a93'/%3E%3Ctext x='50' y='55' font-size='48' fill='white' text-anchor='middle' font-family='Poppins, Arial' font-weight='700'%3EN%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#f6f8fb; /* calm neutral background */
+            --surface:#ffffff;
+            --muted:#6b7280; /* neutral text */
+            --primary:#1f3a93; /* trustworthy indigo */
+            --accent:#06b6d4; /* creative teal */
+            --cta:#fb7a4a; /* warm CTA orange */
+            --cta-contrast:#ffffff;
+            --success:#16a34a;
+            --danger:#ef4444;
+            --radius:10px;
+            --max-width:1200px;
+            --gap:2rem;
+            --shadow:0 6px 24px rgba(2,6,23,0.12);
+            --glass: rgba(255,255,255,0.92);
+        }
+        /* Reset and Basic Styles */
+        *{box-sizing:border-box;margin:0;padding:0}
+        html{font-size:16px;scroll-behavior:smooth}
+        body{
+            font-family:'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            line-height:1.6;color:#111;background:var(--bg);
+        }
+        a{color:inherit;text-decoration:none}
+        ul{list-style:none}
+
+        /* Header/Navigation */
+        header{position:fixed;top:0;left:0;width:100%;backdrop-filter:saturate(120%) blur(6px);background:var(--glass);box-shadow:var(--shadow);z-index:1200}
+        nav{max-width:var(--max-width);margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+        .logo{font-weight:700;color:var(--primary);font-size:1.15rem}
+        .nav-links{display:flex;gap:1.5rem;align-items:center}
+
+        /* Accessibility */
+        .skip-link{position:absolute;left:-999px;top:auto;overflow:hidden;padding:0.25rem 0.5rem;background:var(--primary);color:#fff;border-radius:6px}
+        .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;z-index:9999}
+        a:focus,.btn:focus,.cta:focus{outline:3px solid rgba(6,182,212,0.24);outline-offset:3px;border-radius:6px}
+
+        .case-metric{font-weight:700;color:var(--accent);font-size:1.25rem}
+
+        
+        .nav-links a{font-weight:500;color:var(--muted);padding:0.35rem 0.5rem;border-radius:6px;transition:color 180ms,background 180ms}
+        .nav-links a:hover{color:var(--primary);background:rgba(6,182,212,0.06)}
+        .cta{background:var(--cta);color:var(--cta-contrast);padding:0.6rem 1rem;border-radius:999px;font-weight:600;box-shadow:0 8px 22px rgba(251,122,74,0.16);border:none}
+        .cta.secondary{background:transparent;color:var(--primary);border:1px solid rgba(31,58,147,0.12)}
+        .nav-toggle{display:none;border:0;background:transparent}
+
+        /* Hero Section - Polished */
+        #hero{background:linear-gradient(120deg,var(--primary),rgba(6,182,212,0.12));color:#fff;padding:6rem 1.5rem;position:relative;overflow:hidden}
+        .hero-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:2.5rem;align-items:center}
+        .hero-left{padding-right:1rem}
+        .eyebrow{display:inline-block;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.95);padding:0.35rem 0.65rem;border-radius:999px;font-weight:600;margin-bottom:0.75rem}
+        .hero-left h1{font-size:2.6rem;line-height:1.03;margin:0 0 0.6rem;color:#fff}
+        .lead{font-size:1.125rem;color:rgba(255,255,255,0.92);margin-bottom:1rem}
+        .hero-ctas{display:flex;gap:0.9rem;align-items:center;flex-wrap:wrap;margin-bottom:1.25rem}
+        .hero-stats{display:flex;gap:0.75rem;margin-top:0.5rem}
+        .stat{background:rgba(255,255,255,0.06);padding:0.75rem 1rem;border-radius:10px;min-width:110px;text-align:left}
+        .stat-value{font-weight:700;color:var(--cta);font-size:1.1rem}
+        .stat-label{font-size:0.9rem;color:rgba(255,255,255,0.9)}
+        .hero-right{display:flex;justify-content:center}
+        .hero-media{position:relative;width:100%;max-width:360px}
+        .hero-photo{width:100%;height:360px;border-radius:16px;object-fit:cover;box-shadow:0 20px 40px rgba(2,6,23,0.14);border:6px solid rgba(255,255,255,0.06);background:#fff}
+        .hero-illustration{position:absolute;right:-22px;bottom:-22px;width:160px;height:160px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03));box-shadow:0 10px 30px rgba(2,6,23,0.12);display:flex;align-items:center;justify-content:center}
+        .hero-illustration svg{width:70%;height:70%;opacity:0.95}
+        .hero .decor-wave{position:absolute;left:0;right:0;bottom:-1px;height:120px}
+
+        /* Animations */
+        .fade-up{animation:fadeUp 700ms cubic-bezier(.2,.9,.2,1) both}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes floaty{0%{transform:translateY(-6px)}50%{transform:translateY(6px)}100%{transform:translateY(-6px)}}
+        .hero-illustration{animation:floaty 6s ease-in-out infinite}
+
+        @media (max-width:980px){.hero-inner{grid-template-columns:1fr 320px}}
+        @media (max-width:760px){
+            .hero-inner{grid-template-columns:1fr;gap:1.25rem}
+            .hero-right{order:-1}
+            .hero-photo{height:220px;width:220px;border-radius:999px}
+            .hero-left{text-align:center;padding:0}
+            .stat{min-width:86px}
+        }
+
+        /* Sections */
+        section{padding:6rem 2rem}
+        section .container{max-width:var(--max-width);margin:0 auto}
+        h2{text-align:center;font-size:2rem;margin-bottom:1.75rem;color:var(--primary)}
+
+        /* Cards, Skills, Projects */
+        .card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.25rem}
+        .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap);align-items:stretch}
+        .case-card{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:var(--radius);padding:1.25rem;box-shadow:0 12px 30px rgba(2,6,23,0.06);display:flex;flex-direction:column;gap:0.75rem}
+        .case-metric{font-weight:700;color:var(--accent);font-size:1.25rem}
+        .case-card p{color:#334155;font-size:0.98rem}
+        .case-card .case-footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center}
+
+        /* Skills */
+        .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;align-items:start}
+        .skill-item{background:var(--surface);padding:1rem;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:0.6rem;transition:transform 220ms ease,box-shadow 220ms}
+        .skill-item:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(2,6,23,0.08)}
+        .skill-header{display:flex;align-items:center;gap:0.75rem}
+        .skill-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,rgba(31,58,147,0.06),rgba(6,182,212,0.02));display:inline-flex;align-items:center;justify-content:center;font-size:18px;color:var(--primary)}
+        .skill-item h3{margin:0;font-size:1.05rem;color:var(--primary)}
+        .skill-desc{color:var(--muted);font-size:0.95rem;margin:0}
+        .skill-bar-container{background:#eef2f7;border-radius:999px;height:12px;overflow:hidden;margin-top:0.6rem}
+        .skill-bar{height:12px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--cta));width:0;transition:width 900ms cubic-bezier(.2,.9,.2,1)}
+        .skill-bar[role="progressbar"]{outline:none}
+        .skill-value{font-weight:700;color:var(--muted);font-size:0.9rem;margin-top:0.5rem}
+        .skill-item .skill-meta{display:flex;justify-content:space-between;align-items:center;margin-top:0.45rem}
+        .skill-meta small{color:var(--muted);font-size:0.85rem}
+        .skill-item .tooltip{font-size:0.85rem;color:var(--muted)}
+        .skill-more{background:transparent;border:1px dashed rgba(31,58,147,0.08);padding:0.35rem 0.6rem;border-radius:8px;font-weight:700;color:var(--primary);cursor:pointer}
+        .skill-detail{display:none;padding-top:0.6rem;border-top:1px dashed rgba(15,23,42,0.04);font-size:0.95rem;color:var(--muted)}
+        .skill-item.open .skill-detail{display:block}
+        @media (max-width:760px){.skills-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
+
+        /* Projects */
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--gap)}
+        .project-card{background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform 0.28s ease,box-shadow 0.28s ease;position:relative}
+        .project-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(2,6,23,0.14)}
+        .project-figure{position:relative;margin:0}
+        .project-img{width:100%;height:220px;object-fit:cover;display:block;border-radius:6px 6px 0 0;transition:transform 380ms cubic-bezier(.2,.9,.2,1)}
+        .project-card:hover .project-img{transform:scale(1.03)}
+        .figure-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:1rem;pointer-events:none}
+        .figure-overlay .overlay-btn{pointer-events:auto;background:rgba(0,0,0,0.6);color:#fff;padding:0.5rem 0.9rem;border-radius:8px;border:0;font-weight:700;backdrop-filter:blur(4px);transition:background 160ms}
+        .figure-overlay .overlay-btn:hover{background:rgba(0,0,0,0.72)}
+        .project-info{padding:1.25rem}
+        .project-info h3{margin-bottom:0.35rem}
+        .project-meta{color:var(--muted);font-size:0.95rem;margin-bottom:0.5rem}
+        .project-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem}
+        .project-tag{background:rgba(6,182,212,0.08);color:var(--accent);padding:0.25rem 0.6rem;border-radius:999px;font-size:0.86rem;font-weight:600}
+        .project-cta{display:inline-block;margin-top:0.75rem;padding:0.45rem 0.9rem;border-radius:8px;background:transparent;border:1px solid rgba(31,58,147,0.12);color:var(--primary);font-weight:600}
+
+        /* Back to top button */
+        #back-to-top{position:fixed;right:1rem;bottom:1.25rem;background:var(--cta);color:var(--cta-contrast);border:0;padding:0.6rem 0.8rem;border-radius:999px;box-shadow:0 12px 30px rgba(251,122,74,0.18);display:none;z-index:1500;cursor:pointer}
+        #back-to-top.show{display:block}
+        #back-to-top:focus{outline:3px solid rgba(6,182,212,0.24);outline-offset:3px}
+
+        /* Project figures and lightbox */
+        .project-figure{margin:0;display:flex;flex-direction:column}
+        .project-figure figcaption{font-size:0.9rem;color:var(--muted);margin-top:0.6rem}
+        .project-img{width:100%;height:220px;object-fit:cover;display:block;border-radius:6px 6px 0 0}
+        .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.85);z-index:2000;padding:2rem}
+        .lightbox.open{display:flex}
+        .lightbox img{max-width:92vw;max-height:86vh;border-radius:8px;box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+        .lightbox .close{position:absolute;top:1rem;right:1rem;background:transparent;border:0;color:#fff;font-size:1.75rem;cursor:pointer}
+        .lightbox .caption{margin-top:0.75rem;color:#fff;text-align:center;max-width:90vw}
+        @media (max-width:480px){.lightbox{padding:1rem}.lightbox img{max-width:95vw;max-height:70vh}}
+
+        /* Testimonials */
+        .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+        .testimonial-card{background:var(--surface);padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start}
+        .testimonial-avatar{width:56px;height:56px;border-radius:50%;background:#e6eef8;flex:0 0 56px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+        .testimonial-quote{font-style:italic;color:#0b1220}
+        .testimonial-meta{margin-top:0.5rem;color:var(--muted);font-size:0.9rem}
+        
+        /* Contact */
+        #contact{background:linear-gradient(180deg,rgba(31,58,147,0.04),rgba(255,255,255,0.0));color:var(--primary);padding-bottom:3.5rem}
+        #contact .container{display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:start}
+        #contact h2{color:var(--primary)}
+        .contact-form{background:var(--surface);padding:1.25rem;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(15,23,42,0.04)}
+        .contact-form label{display:block;font-weight:700;margin-top:0.6rem;color:var(--primary)}
+        .contact-form input,.contact-form textarea{width:100%;padding:0.75rem;border-radius:10px;border:1px solid rgba(15,23,42,0.06);margin-top:0.35rem;background:transparent;color:var(--muted);font-size:0.98rem}
+        .contact-form input:focus,.contact-form textarea:focus{box-shadow:0 10px 28px rgba(6,182,212,0.10);border-color:var(--accent);outline:none}
+        .contact-actions{display:flex;gap:0.75rem;align-items:center;margin-top:0.75rem}
+        .contact-button{display:inline-flex;align-items:center;gap:0.6rem;background:var(--cta);color:var(--cta-contrast);padding:0.65rem 1.1rem;border-radius:10px;border:none;font-weight:700;box-shadow:0 10px 24px rgba(251,122,74,0.12);cursor:pointer}
+        .contact-button .spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);border-top-color:rgba(255,255,255,0.95);animation:spin 900ms linear infinite;display:inline-block}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .contact-button[disabled]{opacity:0.6;cursor:not-allowed}
+        .schedule-btn{display:inline-block;padding:0.5rem 0.9rem;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:transparent;color:var(--primary);font-weight:700}
+        .contact-details{background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,1));padding:1.25rem;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(15,23,42,0.03);color:var(--muted)}
+        .contact-details h3{color:var(--primary);margin-top:0}
+        .contact-quick{display:flex;flex-direction:column;gap:0.5rem}
+        .contact-quick a{color:var(--primary);font-weight:600}
+        .form-note{font-size:0.9rem;color:var(--muted);margin-top:0.5rem}
+        .privacy-note{font-size:0.85rem;color:var(--muted);margin-top:0.5rem}
+        .gdpr{display:flex;gap:0.5rem;align-items:center;margin-top:0.6rem}
+        .gdpr input[type="checkbox"]{width:18px;height:18px}
+        .form-error{color:var(--danger);font-size:0.9rem;margin-top:0.5rem;display:none}
+        .form-error.show{display:block}
+        .success-msg{display:none;background:linear-gradient(90deg,var(--accent),var(--primary));color:#fff;padding:0.9rem;border-radius:8px;margin-top:0.75rem}
+        .success-msg.show{display:block}
+        .error-msg{display:none;background:linear-gradient(90deg,var(--danger),#f97373);color:#fff;padding:0.9rem;border-radius:8px;margin-top:0.75rem}
+        .error-msg.show{display:block}
+        @media (max-width:880px){#contact .container{grid-template-columns:1fr;margin-top:1rem}.contact-details{order:2}}
+        .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:start}
+        .contact-form{background:rgba(255,255,255,0.06);padding:1.25rem;border-radius:12px}
+        .contact-form label{display:block;font-weight:600;margin-top:0.75rem;color:rgba(255,255,255,0.95)}
+        .contact-form input,.contact-form textarea{width:100%;padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.08);margin-top:0.35rem;background:rgba(255,255,255,0.03);color:#fff}
+        .contact-form button{margin-top:0.75rem}
+        .contact-details{color:rgba(255,255,255,0.95)}
+        @media (max-width:880px){.contact-grid{grid-template-columns:1fr} .contact-details{order:2}}
+        
+
+        /* Footer */
+        footer{padding:2rem 1rem;text-align:center;color:#fff;background:#0b1220}
+
+        /* Responsive */
+        @media (max-width: 880px){
+            .nav-links{display:none;position:absolute;right:1.5rem;top:72px;background:var(--surface);flex-direction:column;padding:1rem;border-radius:10px;box-shadow:var(--shadow);min-width:200px}
+            .nav-links.open{display:flex}
+            .nav-toggle{display:block}
+            nav{padding:0.75rem 1rem}
+            .hero-content h1{font-size:2rem}
+        }
+        @media (max-width:480px){
+            .hero-content p{font-size:1rem}
+        }
+
+        /* About responsive rules */
+        .about-grid{display:grid;grid-template-columns:1fr 320px;gap:1.5rem;align-items:start}
+        @media (max-width:760px){
+            .about-grid{grid-template-columns:1fr}
+            .about-side{order:2}
+            .about-text{order:1}
+            .about-text p{font-size:0.98rem}
+            .about-text .lead{text-align:left;margin-top:0.5rem}
+            .about-side .quick-card{margin-top:0.6rem}
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+        <nav aria-label="Main navigation">
+            <div class="logo">Naqeeb ur Rehman</div>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+                <!-- simple hamburger -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 6H20M4 12H20M4 18H20" stroke="#1f2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="nav-links" id="primary-navigation">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="cta secondary" href="contact.html">Contact</a></li>
+                <li><a class="cta" href="Naqeeb_CV.pdf" download>Download CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+
+    <section id="hero" aria-label="Introduction">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <span class="eyebrow fade-up">UI/UX Designer • Front-end Developer</span>
+                <h1 class="fade-up">Hi, I'm <strong>Naqeeb ur Rehman</strong></h1>
+                <p class="lead fade-up">I design research-led interfaces and build accessible, high-converting digital products for web and mobile.</p>
+                <div class="hero-ctas fade-up">
+                    <a href="#projects" class="cta">View My Work</a>
+                    <a href="contact.html" class="cta secondary">Contact</a>
+                    <a href="Naqeeb_CV.pdf" class="btn" download>Download CV</a>
+                </div>
+                <div class="hero-stats fade-up" role="list" aria-label="Key stats">
+                    <div class="stat" role="listitem"><div class="stat-value">5+</div><div class="stat-label">Years Experience</div></div>
+                    <div class="stat" role="listitem"><div class="stat-value">20+</div><div class="stat-label">Projects Delivered</div></div>
+                    <div class="stat" role="listitem"><div class="stat-value">15</div><div class="stat-label">Clients</div></div>
+                </div>
+            </div>
+            <div class="hero-right fade-up">
+                <div class="hero-media" aria-hidden="true">
+                    <img class="hero-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80 900w" sizes="(max-width:760px) 220px, 360px" alt="Photo of Naqeeb ur Rehman" loading="eager">
+                    <div class="hero-illustration">
+                        <!-- simple icon inside decorative card -->
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 7h18M3 12h12M3 17h18" stroke="white" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- decorative wave -->
+        <svg class="decor-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M0 20c90 0 180 20 270 20s180-20 270-20 180 20 270 20 180-20 270-20 180 20 360 20v80H0z" opacity="0.08"></path></svg>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p><strong>I'm Naqeeb ur Rehman</strong> — I design user-first products that solve real problems. Over the last 5 years, I've led design for fintech and health startups, shipping research-backed features that increased activation and retention.</p>
+                    <p class="lead">I focus on building design systems, running usability studies, and handoff-ready front-end components that reduce development time and improve consistency.</p>
+                    <ul class="about-highlights">
+                        <li>Built a design system used across web and mobile at scale</li>
+                        <li>Led usability studies that surfaced UX improvements and metrics</li>
+                        <li>Delivered production-ready prototypes and accessible UI components</li>
+                    </ul>
+                    <div class="about-ctas" style="margin-top:0.9rem">
+                        <a href="#projects" class="cta">See my work</a>
+                        <a href="contact.html" class="cta secondary">Let's collaborate</a>
+                    </div>
+                </div>
+                <aside class="about-side" aria-hidden="true">
+                    <div class="quick-card card">
+                        <p><strong>Quick facts</strong></p>
+                        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem">
+                            <div style="display:flex;flex-direction:column;align-items:center;width:100px"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma" style="width:28px;height:28px;filter:invert(14%) sepia(40%) saturate(372%) hue-rotate(160deg) brightness(96%) contrast(86%)"><small style="display:block;margin-top:0.25rem">Figma</small></div>
+                            <div style="display:flex;flex-direction:column;align-items:center;width:100px"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobe.svg" alt="Adobe" style="width:28px;height:28px;filter:invert(14%) sepia(40%) saturate(372%) hue-rotate(160deg) brightness(96%) contrast(86%)"><small style="display:block;margin-top:0.25rem">Adobe XD</small></div>
+                            <div style="display:flex;flex-direction:column;align-items:center;width:100px"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/sketch.svg" alt="Sketch" style="width:28px;height:28px;filter:invert(14%) sepia(40%) saturate(372%) hue-rotate(160deg) brightness(96%) contrast(86%)"><small style="display:block;margin-top:0.25rem">Sketch</small></div>
+                        </div>
+                        <div style="margin-top:0.75rem;color:var(--muted)"><small>Open to freelance & full-time opportunities</small></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-icon" aria-hidden="true">🎨</span>
+                    <h3>UI Design</h3>
+                </div>
+                <p class="skill-desc">Wireframing, Prototyping, Visual Design</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-skill="92" title="92% proficiency" style="width:0"></div>
+                </div>
+                <div class="skill-meta"><small>Visual design & prototyping</small><div class="skill-value">92%</div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-icon" aria-hidden="true">🔍</span>
+                    <h3>UX Research</h3>
+                </div>
+                <p class="skill-desc">User interviews, testing, personas</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-skill="88" title="88% proficiency" style="width:0"></div>
+                </div>
+                <div class="skill-meta"><small>Research & usability</small><div class="skill-value">88%</div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-icon" aria-hidden="true">🧰</span>
+                    <h3>Design Tools</h3>
+                </div>
+                <p class="skill-desc">Figma, Adobe XD, Sketch, Photoshop</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-skill="85" title="85% proficiency" style="width:0"></div>
+                </div>
+                <div class="skill-meta"><small>Figma, XD, Sketch</small><div class="skill-value">85%</div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-icon" aria-hidden="true">💻</span>
+                    <h3>Front-End</h3>
+                </div>
+                <p class="skill-desc">HTML, CSS, JavaScript, React</p>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-skill="75" title="75% proficiency" style="width:0"></div>
+                </div>
+                <div class="skill-meta"><small>Implementation & prototypes</small><div class="skill-value">75%</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-studies">
+        <div class="container">
+            <h2>Case Studies</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h3>Mobile Banking App</h3>
+                    <p>Redesigned the onboarding flow, improving activation rate by <span class="case-metric">+28%</span> and reducing drop-offs.</p>
+                    <div class="case-footer">
+                        <small>Research • UI • Prototyping</small>
+                        <a href="#projects" class="cta">View Project</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <h3>E-Commerce Dashboard</h3>
+                    <p>Streamlined admin workflows and reduced task completion time by <span class="case-metric">-35%</span>.</p>
+                    <div class="case-footer">
+                        <small>UX • Interaction • Front-end</small>
+                        <a href="#projects" class="cta">View Project</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <h3>Health Tracker App</h3>
+                    <p>Implemented gamification and micro-interactions that increased daily retention by <span class="case-metric">+18%</span>.</p>
+                    <div class="case-footer">
+                        <small>Product • Research • Visual Design</small>
+                        <a href="#projects" class="cta">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <figure class="project-figure" data-live-url="https://demo-bank.example.com">
+                    <img class="project-img" src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=80 1600w" sizes="(max-width:600px) 100vw, 48vw" alt="Mobile Banking App screenshot" loading="lazy" tabindex="0" data-full="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=2400&q=80">
+                    <div class="figure-overlay"><a class="overlay-btn" href="#" data-live-url="https://demo-bank.example.com" target="_blank" rel="noopener">Live Preview</a></div>
+                    <figcaption>Mobile Banking App — onboarding & accessibility</figcaption>
+                </figure>
+                <div class="project-info">
+                    <div class="project-meta">Fintech • Mobile</div>
+                    <h3>Mobile Banking App Redesign</h3>
+                    <p>Improved user flow and accessibility for a fintech app, increasing user satisfaction by 40%.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Figma</span>
+                        <span class="project-tag">Prototyping</span>
+                        <span class="project-tag">Accessibility</span>
+                    </div>
+                    <a href="#case-studies" class="project-cta">View Case Study</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <figure class="project-figure" data-live-url="https://demo-ecommerce.example.com">
+                    <img class="project-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80 1600w" sizes="(max-width:600px) 100vw, 48vw" alt="E-Commerce Dashboard screenshot" loading="lazy" tabindex="0" data-full="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2400&q=80">
+                    <div class="figure-overlay"><a class="overlay-btn" href="#" data-live-url="https://demo-ecommerce.example.com" target="_blank" rel="noopener">Live Preview</a></div>
+                    <figcaption>E-Commerce Dashboard — admin workflows</figcaption>
+                </figure>
+                <div class="project-info">
+                    <div class="project-meta">Web • Admin</div>
+                    <h3>E-Commerce Dashboard</h3>
+                    <p>Designed an intuitive admin dashboard for managing products and orders, improving task efficiency.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">UX</span>
+                        <span class="project-tag">Data Viz</span>
+                        <span class="project-tag">React</span>
+                    </div>
+                    <a href="#case-studies" class="project-cta">View Case Study</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <figure class="project-figure" data-live-url="https://demo-health.example.com">
+                    <img class="project-img" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1600&q=80 1600w" sizes="(max-width:600px) 100vw, 48vw" alt="Health Tracker App screenshot" loading="lazy" tabindex="0" data-full="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=2400&q=80">
+                    <div class="figure-overlay"><a class="overlay-btn" href="#" data-live-url="https://demo-health.example.com" target="_blank" rel="noopener">Live Preview</a></div>
+                    <figcaption>Health Tracker App — retention & gamification</figcaption>
+                </figure>
+                <div class="project-info">
+                    <div class="project-meta">Mobile • Health</div>
+                    <h3>Health Tracker Mobile App</h3>
+                    <p>User-centered design focusing on gamification and daily habits tracking for better retention.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Product</span>
+                        <span class="project-tag">Gamification</span>
+                        <span class="project-tag">Prototyping</span>
+                    </div>
+                    <a href="#case-studies" class="project-cta">View Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar" role="img" aria-label="Aisha Khan" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#e6eef8,#dfeff6);">
+                        <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1f3a93"/><text x="50%" y="54%" font-size="14" fill="white" font-family="Poppins, Arial" font-weight="700" text-anchor="middle" alignment-baseline="middle">AK</text></svg>
+                    </div>
+                    <div>
+                        <p class="testimonial-quote">"Naqeeb redesigned our app's onboarding and we saw a measurable lift in activation — fast, thoughtful, and collaborative."</p>
+                        <div class="testimonial-meta">— Aisha Khan, Product Lead at FinCo</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar" role="img" aria-label="Omar Rizvi" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#f6fff8,#eaf9ef);">
+                        <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#06b6d4"/><text x="50%" y="54%" font-size="14" fill="white" font-family="Poppins, Arial" font-weight="700" text-anchor="middle" alignment-baseline="middle">OR</text></svg>
+                    </div>
+                    <div>
+                        <p class="testimonial-quote">"Great attention to detail and delivered a clear, usable dashboard that reduced training time for our team."</p>
+                        <div class="testimonial-meta">— Omar Rizvi, Head of Ops at ShopNow</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar" role="img" aria-label="Dr. Sara Ahmed" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff6f4,#fff1ee);">
+                        <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#fb7a4a"/><text x="50%" y="54%" font-size="14" fill="white" font-family="Poppins, Arial" font-weight="700" text-anchor="middle" alignment-baseline="middle">SA</text></svg>
+                    </div>
+                    <div>
+                        <p class="testimonial-quote">"Focused on outcomes and user needs — easy to work with and delivered a polished product."</p>
+                        <div class="testimonial-meta">— Dr. Sara Ahmed, Founder at HealthTrack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="lead">Open to new projects — send a short message or schedule a quick call. I generally reply within 2 business days.</p>
+            <div class="contact-grid">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/your-id" method="POST" novalidate>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@company.com" required>
+
+                    <label for="phone">Phone (optional)</label>
+                    <input id="phone" name="phone" type="tel" placeholder="e.g. +92 300 1234567">
+
+                    <label for="company">Company (optional)</label>
+                    <input id="company" name="company" type="text" placeholder="Company name">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Briefly describe your project or question" required></textarea>
+
+                    <div class="gdpr">
+                        <input id="gdpr" name="gdpr" type="checkbox" required>
+                        <label for="gdpr" style="font-weight:600;color:var(--muted)">I consent to storing my contact info for a reply. <a href="#privacy" style="text-decoration:underline;color:var(--primary)">Privacy</a></label>
+                    </div>
+
+                    <div class="contact-actions">
+                        <button class="contact-button" type="submit"><span class="spinner" aria-hidden="true" style="display:none"></span><span class="btn-text">Send Message</span></button>
+                        <a class="schedule-btn" href="https://calendly.com/your-username" target="_blank" rel="noopener">Schedule a call</a>
+                        <div class="form-note">Or email me at <a href="mailto:naqeeb@example.com">naqeeb@example.com</a></div>
+                    </div>
+
+                    <div class="form-error" id="contactFormError" role="alert">Please review the highlighted fields.</div>
+                    <div class="success-msg" id="contactSuccess" role="status" aria-live="polite"><strong>Sent!</strong> Thanks — I'll reply within 2 business days.</div>
+                    <div class="error-msg" id="contactError" role="alert">Oops — there was a problem sending your message. Please try again or email me directly.</div>
+                    <div class="privacy-note">I respect your privacy — your message will only be used to reply to your inquiry. See our <a href="#privacy">privacy policy</a>.</div>
+                </form>
+                <aside class="contact-details" aria-label="Contact details">
+                    <h3>Prefer a quick chat?</h3>
+                    <div class="contact-quick">
+                        <div><strong>Email:</strong> <a href="mailto:naqeeb@example.com">naqeeb@example.com</a></div>
+                        <div><strong>LinkedIn:</strong> <a href="#" target="_blank" rel="noopener">Connect</a></div>
+                        <div><strong>Availability:</strong> Open for freelance & full-time</div>
+                    </div>
+                    <p style="margin-top:1rem"><a class="btn" href="Naqeeb_CV.pdf" download>Download CV</a></p>
+                </aside>
+            </div>
+        </div>
+    </section> -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Naqeeb ur Rehman. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        (function(){
+            const toggle = document.querySelector('.nav-toggle');
+            const nav = document.getElementById('primary-navigation');
+            if(!toggle || !nav) return;
+            toggle.addEventListener('click', ()=>{
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!expanded));
+                nav.classList.toggle('open');
+            });
+            // Close menu when a link is clicked
+            nav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+                nav.classList.remove('open');
+                toggle.setAttribute('aria-expanded','false');
+            }));
+        })();
+
+        // Animate skill bars on load and add skill detail toggle
+        document.addEventListener('DOMContentLoaded', ()=>{
+            const bars = document.querySelectorAll('.skill-bar');
+            bars.forEach((bar, i) => {
+                const pct = parseInt(bar.getAttribute('data-skill') || '0', 10);
+                setTimeout(()=> {
+                    bar.style.width = pct + '%';
+                    bar.setAttribute('aria-valuenow', String(pct));
+                    bar.setAttribute('title', pct + '% proficiency');
+                    // update the visible percentage text next to the bar
+                    const valueNode = bar.closest('.skill-item')?.querySelector('.skill-value');
+                    if(valueNode) valueNode.textContent = pct + '%';
+                }, 250 + i*150);
+            });
+
+            // Skill detail toggles (accessible)
+            document.querySelectorAll('.skill-more').forEach(btn => {
+                btn.addEventListener('click', (e)=>{
+                    const item = btn.closest('.skill-item');
+                    const open = item.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', String(open));
+                    btn.textContent = open ? 'Hide' : 'Details';
+                });
+            });
+
+            // Continue existing code... (lightbox, screenshots, back-to-top handled below)
+
+            // Contact form handler (progressive, accessible) with validation, spinner and mailto fallback
+            const contactForm = document.getElementById('contactForm');
+            const contactSuccess = document.getElementById('contactSuccess');
+            const contactError = document.getElementById('contactError');
+            const contactFormError = document.getElementById('contactFormError');
+            if(contactForm){
+                contactForm.addEventListener('submit', async (e)=>{
+                    e.preventDefault();
+                    contactSuccess.classList.remove('show');
+                    contactError.classList.remove('show');
+                    contactFormError.classList.remove('show');
+
+                    // simple client validation
+                    const name = contactForm.name.value.trim();
+                    const email = contactForm.email.value.trim();
+                    const message = contactForm.message.value.trim();
+                    const gdpr = contactForm.gdpr.checked;
+                    if(!name || !email || !message || !gdpr){
+                        contactFormError.classList.add('show');
+                        // focus first invalid
+                        if(!name) contactForm.name.focus(); else if(!email) contactForm.email.focus(); else if(!gdpr) contactForm.gdpr.focus();
+                        return;
+                    }
+
+                    const submitBtn = contactForm.querySelector('.contact-button');
+                    const spinner = submitBtn.querySelector('.spinner');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    submitBtn.disabled = true; spinner.style.display = 'inline-block'; btnText.style.opacity = '0.6';
+
+                    // send form
+                    const formData = new FormData(contactForm);
+                    try{
+                        const res = await fetch(contactForm.action, {
+                            method: contactForm.method,
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if(res.ok){
+                            contactSuccess.classList.add('show');
+                            contactForm.reset();
+                            // auto-hide success after 6s
+                            setTimeout(()=> contactSuccess.classList.remove('show'), 6000);
+                        } else {
+                            // fallback to mailto in case of server issue
+                            contactError.classList.add('show');
+                        }
+                    } catch(err){
+                        // if fetch fails, open mail client as a helpful fallback
+                        contactError.classList.add('show');
+                        const mailto = `mailto:naqeeb@example.com?subject=${encodeURIComponent('Project inquiry from '+name)}&body=${encodeURIComponent(message+' \n\nContact: '+email+' '+(contactForm.phone?.value||''))}`;
+                        // do not auto-navigate, but show option in the error message
+                        const link = document.createElement('a'); link.href = mailto; link.textContent = 'Send via email'; link.style.color = 'white'; link.style.fontWeight = '700';
+                        const holder = contactError;
+                        if(!holder.querySelector('a')) holder.appendChild(document.createElement('div')).appendChild(link);
+                    } finally{ submitBtn.disabled = false; spinner.style.display = 'none'; btnText.style.opacity = '1'; }
+                });
+            }
+
+
+            // Lightbox feature for project images
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.innerHTML = `
+                <button class="close" aria-label="Close image">&times;</button>
+                <div class="content">
+                    <img src="" alt="" />
+                    <div class="caption"></div>
+                </div>
+            `;
+            document.body.appendChild(lightbox);
+
+            const lbImage = lightbox.querySelector('img');
+            const lbCaption = lightbox.querySelector('.caption');
+            const closeBtn = lightbox.querySelector('.close');
+
+            function openLightbox(src, alt, caption){
+                lbImage.src = src;
+                lbImage.alt = alt || '';
+                lbCaption.textContent = caption || '';
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            }
+            function closeLightbox(){
+                lightbox.classList.remove('open');
+                lbImage.src = '';
+                document.body.style.overflow = '';
+            }
+
+            // Attach to all project images with data-full
+            const projectImages = document.querySelectorAll('.project-img[data-full]');
+            projectImages.forEach(img => {
+                img.addEventListener('click', ()=> openLightbox(img.getAttribute('data-full'), img.alt, img.closest('figure')?.querySelector('figcaption')?.textContent));
+                img.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(img.getAttribute('data-full'), img.alt, img.closest('figure')?.querySelector('figcaption')?.textContent); }});
+            });
+
+            // Fetch live screenshots for project figures that provide a data-live-url attribute.
+            // Uses thum.io public demo endpoint — replace with your preferred screenshot service or local images.
+            const figures = document.querySelectorAll('figure[data-live-url]');
+            figures.forEach(fig => {
+                const liveUrl = fig.getAttribute('data-live-url');
+                const img = fig.querySelector('.project-img');
+                if(!liveUrl || !img) return;
+                // Construct a screenshot service URL (thum.io)
+                const screenshot = `https://image.thum.io/get/width/1200/crop/700/${liveUrl.replace(/^https?:\/\//,'')}`;
+                // Set as a higher-resolution src and keep srcset fallback
+                img.src = screenshot;
+                img.setAttribute('data-full', screenshot);
+                // Make overlay button open the live site itself
+                const btn = fig.querySelector('.overlay-btn');
+                if(btn){
+                    btn.addEventListener('click', (e)=>{e.stopPropagation();});
+                    btn.setAttribute('href', liveUrl);
+                }
+            });
+
+            // Back-to-top button
+            const back = document.createElement('button');
+            back.id = 'back-to-top';
+            back.setAttribute('aria-label','Back to top');
+            back.innerHTML = '⬆︎';
+            document.body.appendChild(back);
+            back.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+            window.addEventListener('scroll', ()=>{
+                if(window.scrollY > 400) back.classList.add('show'); else back.classList.remove('show');
+            });
+
+            // close handlers
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+            document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+        });
+    </script>
+
+</body>
+</html>
